@@ -1,0 +1,47 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html ng-app="toDoApp" ng-controller="toDoController">
+  <head>
+    <meta charset="UTF-8">
+    <title> To-do List </title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.13/angular-ui-router.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body >   
+    <body>
+        <div  class="jumbotron">
+            <h1>Lista de tarefas</h1>
+            <h2>Tarefas</h2>
+              <table class="table"> 
+                <tr><td>
+                  <h3>Não esquecer de : ({{ tasks.length }})</h3>
+                    <span ng-hide="tasks.length">Nada para hoje</span>
+                    <div ng-repeat="task in tasks" >
+                      <input type="checkbox" ng-click="transferTo($index, tasks, completed)" /> {{ task }}<br />
+                    </div>
+                </td><td>
+                  <div ng-show="completed.length">
+                    <h3>Feitas ({{ completed.length }})</h3>
+                      <div ng-repeat="task in completed">
+                        <input type="checkbox" ng-click="transferTo($index, completed, tasks)" checked /> <span class="complete">{{ task }}</span><br />
+                      </div>
+                  </div>
+                </td></tr>
+              </table>
+            <h2>Adicionar Tarefa</h2>
+              <form ng-submit="addTask()">
+                <input class="form-control" type="text" placeholder="Quer lembrar de algo?" ng-model="newTaskName" />
+                <input class="btn btn-success btn-block"  type="submit" value="Adicionar" />
+
+              </form>
+        </div>
+        
+</body>
+</html>

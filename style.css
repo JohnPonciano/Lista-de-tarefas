@@ -1,0 +1,10 @@
+.jumbotron{
+    width: 400px;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+}
+.form-control{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
